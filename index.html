@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
-  <title>Генератор идей контента</title>
+  <title>Амелия Босс — генератор контента для Telegram</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -303,6 +303,101 @@
       margin: 0;
     }
 
+    .section-head-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.45rem;
+    }
+
+    .storage-warning {
+      margin: 0.85rem auto 0;
+      max-width: 40rem;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      color: #fbbf24;
+      text-align: center;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 8px;
+      background: rgba(251, 191, 36, 0.06);
+    }
+
+    [data-theme="light"] .storage-warning {
+      color: #b45309;
+      background: rgba(251, 191, 36, 0.1);
+    }
+
+    .ethics-block {
+      margin: 1rem auto 0;
+      max-width: 40rem;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem 0.85rem;
+      background: var(--card-glow);
+    }
+
+    .ethics-block summary {
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      list-style-position: outside;
+    }
+
+    .ethics-inner {
+      margin-top: 0.65rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .ethics-text {
+      margin: 0.65rem 0 0.35rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .ethics-quote {
+      margin: 0 0 0.5rem;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--text);
+      border-radius: 8px;
+      border: 1px dashed var(--border);
+      background: var(--surface-solid);
+    }
+
+    textarea.idea-input {
+      display: block;
+      width: 100%;
+      min-height: 3.2rem;
+      margin: 0;
+      padding: 0.5rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-solid);
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    textarea.idea-input:focus {
+      outline: none;
+      border-color: var(--accent-dim);
+      box-shadow: 0 0 0 2px var(--card-glow);
+    }
+
+    textarea.idea-input::placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
     .card--flash {
       animation: card-flash 0.65s ease;
     }
@@ -356,9 +451,19 @@
     .week-grid .day:nth-child(7) { animation-delay: 0.2s; }
 
     .wrap {
-      max-width: 720px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 4.5rem 1.25rem 3.5rem;
+    }
+
+    .brand-line {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
     header {
@@ -422,6 +527,70 @@
       color: var(--muted);
       opacity: 0.9;
       font-weight: 400;
+    }
+
+    .header-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .brand-mark {
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.04em;
+      color: #0a1628;
+      background: linear-gradient(145deg, var(--accent-dim), var(--accent));
+      box-shadow:
+        0 8px 28px rgba(56, 189, 248, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    [data-theme="light"] .brand-mark {
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    .disclaimer {
+      margin: 1.25rem auto 0;
+      max-width: 36rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.75rem;
+      line-height: 1.45;
+      color: var(--muted);
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-glow);
+    }
+
+    .draft-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .draft-bar #draftStatus {
+      color: var(--accent-dim);
+      font-weight: 500;
+    }
+
+    .btn--sm {
+      padding: 0.45rem 0.75rem;
+      font-size: 0.8rem;
     }
 
     section {
@@ -495,20 +664,32 @@
       box-shadow: var(--shadow-lg);
     }
 
+    .card--week {
+      border-color: rgba(125, 211, 252, 0.22);
+      background: linear-gradient(165deg, var(--surface) 0%, rgba(125, 211, 252, 0.06) 100%);
+      box-shadow:
+        var(--shadow),
+        0 0 0 1px rgba(125, 211, 252, 0.08) inset;
+    }
+
+    [data-theme="light"] .card--week {
+      border-color: rgba(2, 132, 199, 0.2);
+      background: linear-gradient(165deg, var(--surface) 0%, rgba(2, 132, 199, 0.05) 100%);
+    }
+
     ul {
       margin: 0;
       padding-left: 1.2rem;
     }
 
     li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
       color: var(--text);
       transition: color 0.2s ease;
     }
 
-    .idea-text {
-      color: var(--text);
-      font-style: normal;
+    .js-idea-list li:last-child {
+      margin-bottom: 0;
     }
 
     li::marker {
@@ -527,17 +708,13 @@
 
     .week-grid {
       display: grid;
-      gap: 0.5rem;
+      gap: 1rem;
     }
 
     .day {
-      display: grid;
-      grid-template-columns: 108px 1fr;
-      gap: 0.85rem;
-      align-items: start;
-      padding: 0.7rem 0.5rem;
+      padding: 1rem 0.65rem;
       margin: 0 -0.5rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border-bottom: 1px solid var(--border);
       transition: background 0.25s ease;
     }
@@ -551,22 +728,126 @@
       padding-bottom: 0;
     }
 
+    .day-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.65rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .day-header {
+      flex: 1;
+      min-width: 0;
+      margin-bottom: 0;
+    }
+
+    .btn-copy-day {
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
     .day-name {
-      font-weight: 600;
-      font-size: 0.82rem;
+      display: block;
+      font-weight: 700;
+      font-size: 0.88rem;
       color: var(--accent);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
-    .day-plan {
-      margin: 0;
-      font-size: 0.9rem;
+    .day-rubric {
+      margin: 0.25rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
       color: var(--muted);
+      font-weight: 500;
     }
 
-    .day-plan:not(.placeholder) {
+    textarea.day-post {
+      display: block;
+      width: 100%;
+      margin: 0;
+      min-height: 9.5rem;
+      max-height: 22rem;
+      font-size: 0.92rem;
+      line-height: 1.58;
       color: var(--text);
-      font-style: normal;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: inherit;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      background: var(--surface-solid);
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    textarea.day-post:hover {
+      border-color: var(--border-hover);
+    }
+
+    textarea.day-post:focus {
+      outline: none;
+      border-color: var(--accent-dim);
+      box-shadow: 0 0 0 3px var(--card-glow);
+    }
+
+    textarea.day-post::placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .day-footer {
+      margin-top: 0.5rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .char-count {
+      font-weight: 600;
+      color: var(--accent-dim);
+      transition: color 0.2s ease;
+    }
+
+    .char-count--near {
+      color: #fbbf24;
+    }
+
+    .char-count--at {
+      color: #34d399;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.35rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      z-index: 200;
+      pointer-events: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--bg-base);
+      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.25s ease;
+    }
+
+    .toast--visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -624,6 +905,12 @@
       .btn--success-pulse {
         animation: none;
       }
+
+      .toast,
+      .toast--visible {
+        transition: none;
+        transform: translateX(-50%);
+      }
     }
   </style>
 </head>
@@ -650,8 +937,14 @@
 
   <div class="wrap">
     <header>
-      <h1>Генератор идей контента</h1>
-      <p class="subtitle">Структура для еженедельного планирования и сторис</p>
+      <div class="header-top">
+        <div class="brand-mark" aria-hidden="true">AB</div>
+        <div>
+          <p class="brand-line">Канал Амелии Босс · Telegram</p>
+          <h1>Генератор идей контента</h1>
+        </div>
+      </div>
+      <p class="subtitle">Бизнес-психолог, нейрокоуч и специалист по работе с тревожностью — база для публикаций на неделю</p>
       <div class="hero-actions">
         <button type="button" class="btn btn--primary" id="btnGenerate" aria-describedby="subtitle-hint">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -666,13 +959,30 @@
           Копировать всё
         </button>
       </div>
-      <p id="subtitle-hint" class="header-hint">Нажмите «Сгенерировать», чтобы подставить случайные подсказки в блоки</p>
+      <p id="subtitle-hint" class="header-hint">Каждый день недели — своя рубрика; тексты постов до 800 символов. Редактируйте прямо в полях — черновик сохраняется в браузере.</p>
+      <p class="disclaimer">Материалы генератора — вдохновение для контента, не замена очной психологической помощи и не индивидуальная консультация.</p>
+      <p class="storage-warning">Черновик хранится только в этом браузере (localStorage), без шифрования. Не вставляйте сюда реальные персональные данные клиентов и чувствительные истории.</p>
+      <details class="ethics-block">
+        <summary>Шаблоны подписи к постам в Telegram</summary>
+        <div class="ethics-inner">
+          <p class="ethics-text"><strong>Базовая подпись</strong> (образовательный контент, не медицина):</p>
+          <p class="ethics-quote" id="footerEducational">Пост носит образовательный характер и не заменяет очную консультацию психолога или врача. При острых состояниях обратитесь за помощью к специалисту очно.</p>
+          <button type="button" class="btn btn--ghost btn--sm" id="btnCopyFooter">Копировать базовую подпись</button>
+          <p class="ethics-text"><strong>Рубрика «отзыв» (суббота)</strong> — добавьте к базовой или используйте отдельно:</p>
+          <p class="ethics-quote" id="footerFictional">Сюжет и цитата вымышлены, используются как учебный пример, а не описание реального случая.</p>
+          <button type="button" class="btn btn--ghost btn--sm" id="btnCopyFooterSat">Копировать пометку про вымышленный сюжет</button>
+        </div>
+      </details>
+      <div class="draft-bar">
+        <span id="draftStatus">Черновик не сохранён</span>
+        <button type="button" class="btn btn--ghost btn--sm" id="btnClearDraft">Сбросить черновик</button>
+      </div>
     </header>
 
     <section aria-labelledby="consult">
       <div class="section-head">
-        <h2 id="consult">5 идей для консультации</h2>
-        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-consult" aria-label="Копировать блок: идеи для консультации">
+        <h2 id="consult">5 тем для постов и эфиров</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-consult" aria-label="Копировать блок: темы для постов">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
@@ -680,91 +990,163 @@
       </div>
       <div class="card" id="block-consult">
         <ul class="js-idea-list" id="list-consult">
-          <li><span class="placeholder">Идея 1 — тема или формат консультации</span></li>
-          <li><span class="placeholder">Идея 2</span></li>
-          <li><span class="placeholder">Идея 3</span></li>
-          <li><span class="placeholder">Идея 4</span></li>
-          <li><span class="placeholder">Идея 5</span></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Тема 1" placeholder="Тема 1 — угол для поста или прямого эфира"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Тема 2" placeholder="Тема 2"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Тема 3" placeholder="Тема 3"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Тема 4" placeholder="Тема 4"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Тема 5" placeholder="Тема 5"></textarea></li>
         </ul>
       </div>
     </section>
 
     <section aria-labelledby="practices">
       <div class="section-head">
-        <h2 id="practices">5 практик</h2>
-        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-practices" aria-label="Копировать блок: практики">
+        <h2 id="practices">5 практик для подписчиков</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-practices" aria-label="Копировать блок: практики для подписчиков">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
         </button>
       </div>
       <div class="card" id="block-practices">
         <ul class="js-idea-list" id="list-practices">
-          <li><span class="placeholder">Практика 1 — упражнение или ритуал для аудитории</span></li>
-          <li><span class="placeholder">Практика 2</span></li>
-          <li><span class="placeholder">Практика 3</span></li>
-          <li><span class="placeholder">Практика 4</span></li>
-          <li><span class="placeholder">Практика 5</span></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Практика 1" placeholder="Практика 1 — упражнение для аудитории"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Практика 2" placeholder="Практика 2"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Практика 3" placeholder="Практика 3"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Практика 4" placeholder="Практика 4"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Практика 5" placeholder="Практика 5"></textarea></li>
         </ul>
       </div>
     </section>
 
     <section aria-labelledby="stories">
       <div class="section-head">
-        <h2 id="stories">Три сторис на сегодня</h2>
+        <h2 id="stories">Три идеи для сторис</h2>
         <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-stories" aria-label="Копировать блок: сторис">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
         </button>
       </div>
       <div class="card" id="block-stories">
         <ul class="js-idea-list" id="list-stories">
-          <li><span class="placeholder">Сторис 1 — крючок / вопрос / мини-история</span></li>
-          <li><span class="placeholder">Сторис 2</span></li>
-          <li><span class="placeholder">Сторис 3</span></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Сторис 1" placeholder="Сторис 1 — крючок / вопрос"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Сторис 2" placeholder="Сторис 2"></textarea></li>
+          <li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Сторис 3" placeholder="Сторис 3"></textarea></li>
         </ul>
       </div>
     </section>
 
-    <section aria-labelledby="week">
+    <section class="section--week" aria-labelledby="week">
       <div class="section-head">
-        <h2 id="week">Контент-план на неделю</h2>
-        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-week" aria-label="Копировать блок: план на неделю">
+        <h2 id="week">Неделя в канале: рубрики и тексты постов</h2>
+        <div class="section-head-actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="btnDownloadWeek" title="Скачать все дни одним файлом">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            Скачать .txt
+          </button>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-week" aria-label="Копировать блок: неделя и тексты постов">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
         </button>
+        </div>
       </div>
-      <div class="card" id="block-week">
+      <div class="card card--week" id="block-week">
         <div class="week-grid">
-          <div class="day">
-            <span class="day-name">Понедельник</span>
-            <p class="day-plan placeholder">Пост / формат / тема</p>
+          <div class="day" data-day="mon">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Понедельник</span>
+                <p class="day-rubric">Рубрика: полезный совет по психологии отношений</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост понедельника">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-mon" rows="7" maxlength="800" spellcheck="true" placeholder="Черновик поста — до 800 символов. Нажмите «Сгенерировать» или введите текст вручную."></textarea>
+            <div class="day-footer"><span class="char-count" id="char-mon">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Вторник</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="tue">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Вторник</span>
+                <p class="day-rubric">Рубрика: самопомощь и развитие личных границ</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост вторника">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-tue" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-tue">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Среда</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="wed">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Среда</span>
+                <p class="day-rubric">Рубрика: психологический тренд или новый подход в психотерапии и нейропрактике</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост среды">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-wed" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-wed">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Четверг</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="thu">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Четверг</span>
+                <p class="day-rubric">Рубрика: универсальные лайфхаки для психологического здоровья</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост четверга">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-thu" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-thu">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Пятница</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="fri">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Пятница</span>
+                <p class="day-rubric">Рубрика: подборка лучших практик для успешных отношений</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост пятницы">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-fri" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-fri">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Суббота</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="sat">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Суббота</span>
+                <p class="day-rubric">Рубрика: отзыв клиента (вымышленный, но правдоподобный контекст)</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост субботы">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-sat" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-sat">0</span> / 800 символов</div>
           </div>
-          <div class="day">
-            <span class="day-name">Воскресенье</span>
-            <p class="day-plan placeholder">—</p>
+          <div class="day" data-day="sun">
+            <div class="day-top">
+              <div class="day-header">
+                <span class="day-name">Воскресенье</span>
+                <p class="day-rubric">Рубрика: лёгкий развлекательный пост на тему психологии</p>
+              </div>
+              <button type="button" class="btn btn--ghost btn--icon btn-copy-day" aria-label="Копировать пост воскресенья">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </button>
+            </div>
+            <textarea class="day-post" id="day-post-sun" rows="7" maxlength="800" spellcheck="true" placeholder="Текст поста…"></textarea>
+            <div class="day-footer"><span class="char-count" id="char-sun">0</span> / 800 символов</div>
           </div>
         </div>
       </div>
     </section>
   </div>
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
   <script>
     (function () {
       var root = document.documentElement;
@@ -821,67 +1203,13 @@
     })();
 
     (function () {
-      var CONSULT = [
-        "Разбор типичной ошибки в вашей нише + чек-лист исправлений",
-        "«Спросите меня что угодно» — ответы на вопросы из сторис",
-        "Как выстроить границы с клиентами и не выгореть",
-        "Мини-сессия: разбор одного запроса в прямом эфире",
-        "Консультация «с нуля»: с чего начать проект / продукт",
-        "Разбор возражений: почему «дорого» и что ответить",
-        "Формат «до / после»: один кейс, две стратегии",
-        "План на месяц: приоритеты, метрики, первый шаг",
-        "Работа с тревогой и прокрастинацией у фрилансеров",
-        "Как упаковать экспертность в понятное УТП за 20 минут",
-        "Созвон по структуре контента: рубрики, частота, темы",
-        "Разбор воронки: от подписчика до заявки",
-      ];
+      var DRAFT_KEY = "amelia-boss-generator-draft-v2";
 
-      var PRACTICES = [
-        "3 минуты: запишите 5 тем, о которых не стыдно говорить вслух",
-        "Практика «один экран»: один слайд с планом недели",
-        "Напишите пост из 5 строк: проблема → инсайт → призыв",
-        "Сторис-цепочка из 5 кадров: вопрос → ответ → мини-история",
-        "Таймер 10 минут: ответьте на 3 частых вопроса аудитории",
-        "Соберите «банк фраз» из 10 коротких цитат для сторис",
-        "Сравните два формата (рилс / пост) на одну тему — выберите один",
-        "Напишите скрипт приветствия для новых подписчиков",
-        "Список из 7 «болей» аудитории — один пост на каждую на неделю",
-        "Практика «обратный интро»: с чего начать контент завтра",
-        "Запишите голосовое 60 сек — потом разложите на тезисы",
-        "Мини-аудит профиля: обложка, шапка, закреп, последние 9 постов",
-      ];
-
-      var STORIES = [
-        "Опрос: «Что вам сложнее — идеи или время?»",
-        "«Секрет дня»: один рабочий лайфхак без воды",
-        "Вопрос дня + ответ в следующей серии сторис",
-        "Закулисье: как выглядит ваш рабочий процесс (1 кадр = 1 шаг)",
-        "До/после: скрин или фото результата клиента / себя",
-        "Мини-история: ошибка, которую вы больше не повторите",
-        "«Спросите в ответах» — и ответьте тремя сторис",
-        "Таймер обратного отсчёта до эфира / поста",
-        "Разбор комментария подписчика в 2–3 сторис",
-        "Честно: что вы откладывали на этой неделе",
-        "Карусель-анонс: один слайд = один тезис поста",
-        "Быстрый разбор тренда в вашей нише — «зачем нам это»",
-      ];
-
-      var WEEK_THEMES = [
-        "Образовательный пост + карусель с выводами",
-        "Личная история / кейс + один урок",
-        "Рилс: миф vs факт или короткий разбор",
-        "Пост-вопрос к аудитории + разбор ответов в сторис",
-        "Чек-лист или шпаргалка в посте",
-        "Разбор ошибки + как исправить",
-        "Итоги недели + план на следующую",
-        "Подборка инструментов / ресурсов с комментарием",
-        "Гостевой формат: цитата + ваш комментарий",
-        "Тема из комментариев / опроса подписчиков",
-        "Короткий гайд «как сделать X за Y минут»",
-        "Пост-доказательство: отзыв, цифры, скрин",
-        "Сторис-марафон дня: 5–7 кадров одной темы",
-        "Тренд в нише: ваше мнение без пересказа новостей",
-      ];
+      var C = window.AMELIA_CONTENT || {};
+      var CONSULT = C.CONSULT || [];
+      var PRACTICES = C.PRACTICES || [];
+      var STORIES = C.STORIES || [];
+      var POSTS = C.POSTS || {};
 
       function escapeHtml(s) {
         var div = document.createElement("div");
@@ -901,26 +1229,226 @@
         return out;
       }
 
-      function shuffle(arr) {
-        var a = arr.slice();
-        for (var i = a.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var t = a[i];
-          a[i] = a[j];
-          a[j] = t;
-        }
-        return a;
+      function clamp800(s) {
+        s = (s || "").trim();
+        if (s.length <= 800) return s;
+        var cut = s.slice(0, 800);
+        var lastSpace = cut.lastIndexOf(" ");
+        if (lastSpace > 720) return cut.slice(0, lastSpace) + "…";
+        return cut.slice(0, 797) + "...";
+      }
+
+      function updateCharCount(ta) {
+        var dayEl = ta.closest(".day");
+        if (!dayEl) return;
+        var cc = dayEl.querySelector(".char-count");
+        var n = ta.value.length;
+        if (!cc) return;
+        cc.textContent = String(n);
+        cc.classList.remove("char-count--near", "char-count--at");
+        if (n >= 800) cc.classList.add("char-count--at");
+        else if (n >= 680) cc.classList.add("char-count--near");
+      }
+
+      function fillWeek() {
+        document.querySelectorAll("#block-week [data-day]").forEach(function (dayEl) {
+          var key = dayEl.getAttribute("data-day");
+          var pool = POSTS[key];
+          if (!pool || !pool.length) return;
+          var raw = pool[Math.floor(Math.random() * pool.length)];
+          var text = clamp800(raw);
+          var ta = dayEl.querySelector("textarea.day-post");
+          if (ta) {
+            ta.value = text;
+            updateCharCount(ta);
+          }
+        });
+      }
+
+      function bindIdeaInputs(ul) {
+        if (!ul) return;
+        ul.querySelectorAll("textarea.idea-input").forEach(function (ta) {
+          ta.addEventListener("input", scheduleSave);
+        });
       }
 
       function fillList(ul, texts) {
         ul.classList.add("is-resetting");
         ul.offsetWidth;
         ul.innerHTML = texts
-          .map(function (t) {
-            return '<li><span class="idea-text">' + escapeHtml(t) + "</span></li>";
+          .map(function (t, i) {
+            return (
+              '<li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Пункт ' +
+              (i + 1) +
+              '">' +
+              escapeHtml(t) +
+              "</textarea></li>"
+            );
           })
           .join("");
         ul.classList.remove("is-resetting");
+        bindIdeaInputs(ul);
+      }
+
+      function getListTexts(listId) {
+        var ul = document.getElementById(listId);
+        if (!ul) return [];
+        return Array.prototype.map.call(ul.querySelectorAll("textarea.idea-input"), function (el) {
+          return el.value.trim();
+        });
+      }
+
+      function applyListDraft(listId, arr) {
+        if (!arr || !arr.length) return;
+        var ul = document.getElementById(listId);
+        if (!ul) return;
+        ul.innerHTML = arr
+          .map(function (t, i) {
+            return (
+              '<li><textarea class="idea-input" rows="2" spellcheck="true" aria-label="Пункт ' +
+              (i + 1) +
+              '">' +
+              escapeHtml(t) +
+              "</textarea></li>"
+            );
+          })
+          .join("");
+        bindIdeaInputs(ul);
+      }
+
+      var saveTimer;
+
+      function collectDraft() {
+        var week = {};
+        document.querySelectorAll("#block-week [data-day]").forEach(function (dayEl) {
+          var k = dayEl.getAttribute("data-day");
+          var ta = dayEl.querySelector("textarea.day-post");
+          week[k] = ta ? ta.value : "";
+        });
+        return {
+          v: 2,
+          consult: getListTexts("list-consult"),
+          practices: getListTexts("list-practices"),
+          stories: getListTexts("list-stories"),
+          week: week,
+        };
+      }
+
+      function saveDraft() {
+        try {
+          localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+          updateDraftStatus();
+        } catch (e) {}
+      }
+
+      function scheduleSave() {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveDraft, 450);
+      }
+
+      function updateDraftStatus() {
+        var el = document.getElementById("draftStatus");
+        if (!el) return;
+        var d = new Date();
+        el.textContent =
+          "Сохранено " +
+          d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
+      }
+
+      function loadDraft() {
+        try {
+          try {
+            localStorage.removeItem("amelia-boss-generator-draft-v1");
+          } catch (e1) {}
+          var raw = localStorage.getItem(DRAFT_KEY);
+          if (!raw) return;
+          var data = JSON.parse(raw);
+          if (!data || data.v !== 2) return;
+          if (data.consult && data.consult.length)
+            applyListDraft("list-consult", data.consult);
+          if (data.practices && data.practices.length)
+            applyListDraft("list-practices", data.practices);
+          if (data.stories && data.stories.length)
+            applyListDraft("list-stories", data.stories);
+          if (data.week) {
+            Object.keys(data.week).forEach(function (k) {
+              var dayEl = document.querySelector('#block-week [data-day="' + k + '"]');
+              if (!dayEl) return;
+              var ta = dayEl.querySelector("textarea.day-post");
+              if (ta && data.week[k] != null) {
+                ta.value = data.week[k];
+                updateCharCount(ta);
+              }
+            });
+          }
+          updateDraftStatus();
+        } catch (e) {}
+      }
+
+      function showToast(message) {
+        var toast = document.getElementById("toast");
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add("toast--visible");
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(function () {
+          toast.classList.remove("toast--visible");
+        }, 2200);
+      }
+
+      function copyDayText(dayEl) {
+        var name = dayEl.querySelector(".day-name");
+        var rubric = dayEl.querySelector(".day-rubric");
+        var ta = dayEl.querySelector("textarea.day-post");
+        var parts = [];
+        if (name) parts.push(name.textContent.trim());
+        if (rubric) parts.push(rubric.textContent.trim());
+        parts.push("");
+        parts.push(ta ? ta.value.trim() : "");
+        return parts.join("\n");
+      }
+
+      function getListCardBlockText(cardEl) {
+        var section = cardEl.closest("section");
+        var h2 = section ? section.querySelector("h2") : null;
+        var title = h2 ? h2.textContent.trim() : "";
+        var lines = [];
+        cardEl.querySelectorAll("textarea.idea-input").forEach(function (ta) {
+          var v = ta.value.trim();
+          if (v) lines.push(v);
+        });
+        return title + "\n\n" + lines.join("\n");
+      }
+
+      var lastCopyToastAt = 0;
+
+      function downloadWeekTxt() {
+        var chunks = [];
+        document.querySelectorAll("#block-week .day").forEach(function (dayEl) {
+          chunks.push(copyDayText(dayEl));
+          chunks.push("\n---\n");
+        });
+        var edu = document.getElementById("footerEducational");
+        var fic = document.getElementById("footerFictional");
+        var tail =
+          "\n\n— При публикации добавьте подпись (шаблоны — в блоке выше).\n\nБазовая подпись:\n" +
+          (edu ? edu.textContent.trim() : "") +
+          "\n\nПометка для рубрики «отзыв» (суббота), при необходимости:\n" +
+          (fic ? fic.textContent.trim() : "");
+        var blob = new Blob([chunks.join("\n") + tail], {
+          type: "text/plain;charset=utf-8",
+        });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "amelia-boss-nedelya.txt";
+        a.rel = "noopener";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function () {
+          URL.revokeObjectURL(a.href);
+        }, 400);
+        showToast("Файл сохранён");
       }
 
       function flashCards() {
@@ -946,9 +1474,17 @@
         }, 600);
       }
 
-      function copyText(text, triggerBtn) {
+      function copyText(text, triggerBtn, opts) {
+        opts = opts || {};
+        var allowToast = opts.showToast !== false;
         function ok() {
           pulse(triggerBtn);
+          if (!allowToast) return;
+          var now = Date.now();
+          if (now - lastCopyToastAt > 2500) {
+            showToast("Скопировано");
+            lastCopyToastAt = now;
+          }
         }
         function fail() {
           try {
@@ -976,17 +1512,29 @@
         if (!section) return cardEl.innerText.trim();
         var h2 = section.querySelector("h2");
         var title = h2 ? h2.textContent.trim() : "";
+        if (cardEl.id === "block-week") {
+          var chunks = [title, ""];
+          cardEl.querySelectorAll(".day").forEach(function (dayEl) {
+            chunks.push(copyDayText(dayEl));
+            chunks.push("");
+          });
+          return chunks.join("\n").trim();
+        }
+        if (
+          cardEl.id === "block-consult" ||
+          cardEl.id === "block-practices" ||
+          cardEl.id === "block-stories"
+        ) {
+          return getListCardBlockText(cardEl);
+        }
         return title + "\n\n" + cardEl.innerText.trim();
       }
 
       function getAllText() {
         var parts = [];
         document.querySelectorAll(".wrap > section").forEach(function (sec) {
-          var h2 = sec.querySelector("h2");
           var card = sec.querySelector(".card");
-          if (h2 && card) {
-            parts.push(h2.textContent.trim() + "\n\n" + card.innerText.trim());
-          }
+          if (card) parts.push(getSectionBlockText(card));
         });
         return parts.join("\n\n— — —\n\n");
       }
@@ -995,16 +1543,10 @@
         fillList(document.getElementById("list-consult"), pickUnique(CONSULT, 5));
         fillList(document.getElementById("list-practices"), pickUnique(PRACTICES, 5));
         fillList(document.getElementById("list-stories"), pickUnique(STORIES, 3));
-        var week = shuffle(WEEK_THEMES).slice(0, 7);
-        var plans = document.querySelectorAll("#block-week .day-plan");
-        week.forEach(function (text, i) {
-          if (plans[i]) {
-            plans[i].textContent = text;
-            plans[i].classList.remove("placeholder");
-          }
-        });
+        fillWeek();
         flashCards();
         pulse(document.getElementById("btnGenerate"));
+        saveDraft();
       }
 
       document.getElementById("btnGenerate").addEventListener("click", generate);
@@ -1020,6 +1562,48 @@
           if (card) copyText(getSectionBlockText(card), b);
         });
       });
+
+      document.querySelectorAll("textarea.day-post").forEach(function (ta) {
+        ta.addEventListener("input", function () {
+          updateCharCount(ta);
+          scheduleSave();
+        });
+        updateCharCount(ta);
+      });
+
+      document.querySelectorAll(".btn-copy-day").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var day = btn.closest(".day");
+          if (day) copyText(copyDayText(day), btn, { showToast: false });
+        });
+      });
+
+      document.getElementById("btnDownloadWeek").addEventListener("click", downloadWeekTxt);
+
+      document.getElementById("btnCopyFooter").addEventListener("click", function () {
+        var el = document.getElementById("footerEducational");
+        if (el) copyText(el.textContent.trim(), this);
+      });
+
+      document.getElementById("btnCopyFooterSat").addEventListener("click", function () {
+        var el = document.getElementById("footerFictional");
+        if (el) copyText(el.textContent.trim(), this);
+      });
+
+      document.querySelectorAll("#list-consult, #list-practices, #list-stories").forEach(function (ul) {
+        bindIdeaInputs(ul);
+      });
+
+      document.getElementById("btnClearDraft").addEventListener("click", function () {
+        if (confirm("Удалить сохранённый черновик и перезагрузить страницу?")) {
+          try {
+            localStorage.removeItem(DRAFT_KEY);
+          } catch (err) {}
+          location.reload();
+        }
+      });
+
+      loadDraft();
     })();
   </script>
 </body>

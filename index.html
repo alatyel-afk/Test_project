@@ -162,6 +162,199 @@
       padding-right: 0.15rem;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.62rem 1.1rem;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      overflow: hidden;
+      transition:
+        transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.28s ease,
+        border-color 0.2s ease,
+        background 0.25s ease;
+    }
+
+    .btn svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--accent-dim) 0%, var(--accent) 100%);
+      color: #0a1628;
+      box-shadow:
+        0 4px 16px rgba(56, 189, 248, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    [data-theme="light"] .btn--primary {
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn--primary > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn--primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 60%
+      );
+      transform: translateX(-120%);
+      animation: btn-shimmer 2.8s ease-in-out infinite;
+    }
+
+    @keyframes btn-shimmer {
+      0%, 35% { transform: translateX(-120%); }
+      50%, 100% { transform: translateX(120%); }
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 28px rgba(56, 189, 248, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .btn--primary:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn--ghost {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn--ghost:active {
+      transform: scale(0.98);
+    }
+
+    .btn--icon {
+      padding: 0.45rem;
+      min-width: 2.35rem;
+      min-height: 2.35rem;
+      border-radius: 10px;
+    }
+
+    .btn--icon svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .btn--success-pulse {
+      animation: success-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes success-pop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-head h2 {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .card--flash {
+      animation: card-flash 0.65s ease;
+    }
+
+    @keyframes card-flash {
+      0%, 100% { box-shadow: var(--shadow); }
+      40% {
+        box-shadow:
+          0 0 0 2px var(--accent),
+          var(--shadow-lg);
+      }
+    }
+
+    .js-idea-list li {
+      animation: item-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .js-idea-list.is-resetting li {
+      animation: none;
+    }
+
+    @keyframes item-in {
+      from {
+        opacity: 0;
+        transform: translateX(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .js-idea-list li:nth-child(1) { animation-delay: 0.02s; }
+    .js-idea-list li:nth-child(2) { animation-delay: 0.06s; }
+    .js-idea-list li:nth-child(3) { animation-delay: 0.1s; }
+    .js-idea-list li:nth-child(4) { animation-delay: 0.14s; }
+    .js-idea-list li:nth-child(5) { animation-delay: 0.18s; }
+    .js-idea-list li:nth-child(6) { animation-delay: 0.22s; }
+    .js-idea-list li:nth-child(7) { animation-delay: 0.26s; }
+
+    .week-grid .day {
+      animation: item-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .week-grid .day:nth-child(1) { animation-delay: 0.02s; }
+    .week-grid .day:nth-child(2) { animation-delay: 0.05s; }
+    .week-grid .day:nth-child(3) { animation-delay: 0.08s; }
+    .week-grid .day:nth-child(4) { animation-delay: 0.11s; }
+    .week-grid .day:nth-child(5) { animation-delay: 0.14s; }
+    .week-grid .day:nth-child(6) { animation-delay: 0.17s; }
+    .week-grid .day:nth-child(7) { animation-delay: 0.2s; }
+
     .wrap {
       max-width: 720px;
       margin: 0 auto;
@@ -220,6 +413,14 @@
       margin: 0.75rem 0 0;
       font-size: 0.95rem;
       color: var(--muted);
+      font-weight: 400;
+    }
+
+    .header-hint {
+      margin: 1rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.9;
       font-weight: 400;
     }
 
@@ -305,6 +506,11 @@
       transition: color 0.2s ease;
     }
 
+    .idea-text {
+      color: var(--text);
+      font-style: normal;
+    }
+
     li::marker {
       color: var(--accent);
     }
@@ -358,6 +564,11 @@
       color: var(--muted);
     }
 
+    .day-plan:not(.placeholder) {
+      color: var(--text);
+      font-style: normal;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -389,6 +600,30 @@
         animation: none;
         background-size: 100%;
       }
+
+      .btn--primary::after {
+        animation: none;
+      }
+
+      .btn,
+      .btn--primary:hover,
+      .btn--ghost:hover {
+        transition: border-color 0.2s ease;
+        transform: none;
+      }
+
+      .js-idea-list li,
+      .week-grid .day {
+        animation: none;
+      }
+
+      .card--flash {
+        animation: none;
+      }
+
+      .btn--success-pulse {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -417,12 +652,34 @@
     <header>
       <h1>Генератор идей контента</h1>
       <p class="subtitle">Структура для еженедельного планирования и сторис</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn--primary" id="btnGenerate" aria-describedby="subtitle-hint">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Сгенерировать идеи
+        </button>
+        <button type="button" class="btn btn--ghost" id="btnCopyAll">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          Копировать всё
+        </button>
+      </div>
+      <p id="subtitle-hint" class="header-hint">Нажмите «Сгенерировать», чтобы подставить случайные подсказки в блоки</p>
     </header>
 
     <section aria-labelledby="consult">
-      <h2 id="consult">5 идей для консультации</h2>
-      <div class="card">
-        <ul>
+      <div class="section-head">
+        <h2 id="consult">5 идей для консультации</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-consult" aria-label="Копировать блок: идеи для консультации">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+        </button>
+      </div>
+      <div class="card" id="block-consult">
+        <ul class="js-idea-list" id="list-consult">
           <li><span class="placeholder">Идея 1 — тема или формат консультации</span></li>
           <li><span class="placeholder">Идея 2</span></li>
           <li><span class="placeholder">Идея 3</span></li>
@@ -433,9 +690,14 @@
     </section>
 
     <section aria-labelledby="practices">
-      <h2 id="practices">5 практик</h2>
-      <div class="card">
-        <ul>
+      <div class="section-head">
+        <h2 id="practices">5 практик</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-practices" aria-label="Копировать блок: практики">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+        </button>
+      </div>
+      <div class="card" id="block-practices">
+        <ul class="js-idea-list" id="list-practices">
           <li><span class="placeholder">Практика 1 — упражнение или ритуал для аудитории</span></li>
           <li><span class="placeholder">Практика 2</span></li>
           <li><span class="placeholder">Практика 3</span></li>
@@ -446,9 +708,14 @@
     </section>
 
     <section aria-labelledby="stories">
-      <h2 id="stories">Три сторис на сегодня</h2>
-      <div class="card">
-        <ul>
+      <div class="section-head">
+        <h2 id="stories">Три сторис на сегодня</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-stories" aria-label="Копировать блок: сторис">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+        </button>
+      </div>
+      <div class="card" id="block-stories">
+        <ul class="js-idea-list" id="list-stories">
           <li><span class="placeholder">Сторис 1 — крючок / вопрос / мини-история</span></li>
           <li><span class="placeholder">Сторис 2</span></li>
           <li><span class="placeholder">Сторис 3</span></li>
@@ -457,8 +724,13 @@
     </section>
 
     <section aria-labelledby="week">
-      <h2 id="week">Контент-план на неделю</h2>
-      <div class="card">
+      <div class="section-head">
+        <h2 id="week">Контент-план на неделю</h2>
+        <button type="button" class="btn btn--ghost btn--icon copy-block" data-copy-target="block-week" aria-label="Копировать блок: план на неделю">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+        </button>
+      </div>
+      <div class="card" id="block-week">
         <div class="week-grid">
           <div class="day">
             <span class="day-name">Понедельник</span>
@@ -546,6 +818,208 @@
       });
 
       initTheme();
+    })();
+
+    (function () {
+      var CONSULT = [
+        "Разбор типичной ошибки в вашей нише + чек-лист исправлений",
+        "«Спросите меня что угодно» — ответы на вопросы из сторис",
+        "Как выстроить границы с клиентами и не выгореть",
+        "Мини-сессия: разбор одного запроса в прямом эфире",
+        "Консультация «с нуля»: с чего начать проект / продукт",
+        "Разбор возражений: почему «дорого» и что ответить",
+        "Формат «до / после»: один кейс, две стратегии",
+        "План на месяц: приоритеты, метрики, первый шаг",
+        "Работа с тревогой и прокрастинацией у фрилансеров",
+        "Как упаковать экспертность в понятное УТП за 20 минут",
+        "Созвон по структуре контента: рубрики, частота, темы",
+        "Разбор воронки: от подписчика до заявки",
+      ];
+
+      var PRACTICES = [
+        "3 минуты: запишите 5 тем, о которых не стыдно говорить вслух",
+        "Практика «один экран»: один слайд с планом недели",
+        "Напишите пост из 5 строк: проблема → инсайт → призыв",
+        "Сторис-цепочка из 5 кадров: вопрос → ответ → мини-история",
+        "Таймер 10 минут: ответьте на 3 частых вопроса аудитории",
+        "Соберите «банк фраз» из 10 коротких цитат для сторис",
+        "Сравните два формата (рилс / пост) на одну тему — выберите один",
+        "Напишите скрипт приветствия для новых подписчиков",
+        "Список из 7 «болей» аудитории — один пост на каждую на неделю",
+        "Практика «обратный интро»: с чего начать контент завтра",
+        "Запишите голосовое 60 сек — потом разложите на тезисы",
+        "Мини-аудит профиля: обложка, шапка, закреп, последние 9 постов",
+      ];
+
+      var STORIES = [
+        "Опрос: «Что вам сложнее — идеи или время?»",
+        "«Секрет дня»: один рабочий лайфхак без воды",
+        "Вопрос дня + ответ в следующей серии сторис",
+        "Закулисье: как выглядит ваш рабочий процесс (1 кадр = 1 шаг)",
+        "До/после: скрин или фото результата клиента / себя",
+        "Мини-история: ошибка, которую вы больше не повторите",
+        "«Спросите в ответах» — и ответьте тремя сторис",
+        "Таймер обратного отсчёта до эфира / поста",
+        "Разбор комментария подписчика в 2–3 сторис",
+        "Честно: что вы откладывали на этой неделе",
+        "Карусель-анонс: один слайд = один тезис поста",
+        "Быстрый разбор тренда в вашей нише — «зачем нам это»",
+      ];
+
+      var WEEK_THEMES = [
+        "Образовательный пост + карусель с выводами",
+        "Личная история / кейс + один урок",
+        "Рилс: миф vs факт или короткий разбор",
+        "Пост-вопрос к аудитории + разбор ответов в сторис",
+        "Чек-лист или шпаргалка в посте",
+        "Разбор ошибки + как исправить",
+        "Итоги недели + план на следующую",
+        "Подборка инструментов / ресурсов с комментарием",
+        "Гостевой формат: цитата + ваш комментарий",
+        "Тема из комментариев / опроса подписчиков",
+        "Короткий гайд «как сделать X за Y минут»",
+        "Пост-доказательство: отзыв, цифры, скрин",
+        "Сторис-марафон дня: 5–7 кадров одной темы",
+        "Тренд в нише: ваше мнение без пересказа новостей",
+      ];
+
+      function escapeHtml(s) {
+        var div = document.createElement("div");
+        div.textContent = s;
+        return div.innerHTML;
+      }
+
+      function pickUnique(arr, n) {
+        var a = arr.slice();
+        var out = [];
+        n = Math.min(n, a.length);
+        for (var i = 0; i < n; i++) {
+          var j = Math.floor(Math.random() * a.length);
+          out.push(a[j]);
+          a.splice(j, 1);
+        }
+        return out;
+      }
+
+      function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = a[i];
+          a[i] = a[j];
+          a[j] = t;
+        }
+        return a;
+      }
+
+      function fillList(ul, texts) {
+        ul.classList.add("is-resetting");
+        ul.offsetWidth;
+        ul.innerHTML = texts
+          .map(function (t) {
+            return '<li><span class="idea-text">' + escapeHtml(t) + "</span></li>";
+          })
+          .join("");
+        ul.classList.remove("is-resetting");
+      }
+
+      function flashCards() {
+        ["block-consult", "block-practices", "block-stories", "block-week"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          el.classList.remove("card--flash");
+          el.offsetWidth;
+          el.classList.add("card--flash");
+          window.setTimeout(function () {
+            el.classList.remove("card--flash");
+          }, 700);
+        });
+      }
+
+      function pulse(el) {
+        if (!el) return;
+        el.classList.remove("btn--success-pulse");
+        el.offsetWidth;
+        el.classList.add("btn--success-pulse");
+        window.setTimeout(function () {
+          el.classList.remove("btn--success-pulse");
+        }, 600);
+      }
+
+      function copyText(text, triggerBtn) {
+        function ok() {
+          pulse(triggerBtn);
+        }
+        function fail() {
+          try {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            ta.setAttribute("readonly", "");
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            ok();
+          } catch (e) {}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(ok).catch(fail);
+        } else {
+          fail();
+        }
+      }
+
+      function getSectionBlockText(cardEl) {
+        var section = cardEl.closest("section");
+        if (!section) return cardEl.innerText.trim();
+        var h2 = section.querySelector("h2");
+        var title = h2 ? h2.textContent.trim() : "";
+        return title + "\n\n" + cardEl.innerText.trim();
+      }
+
+      function getAllText() {
+        var parts = [];
+        document.querySelectorAll(".wrap > section").forEach(function (sec) {
+          var h2 = sec.querySelector("h2");
+          var card = sec.querySelector(".card");
+          if (h2 && card) {
+            parts.push(h2.textContent.trim() + "\n\n" + card.innerText.trim());
+          }
+        });
+        return parts.join("\n\n— — —\n\n");
+      }
+
+      function generate() {
+        fillList(document.getElementById("list-consult"), pickUnique(CONSULT, 5));
+        fillList(document.getElementById("list-practices"), pickUnique(PRACTICES, 5));
+        fillList(document.getElementById("list-stories"), pickUnique(STORIES, 3));
+        var week = shuffle(WEEK_THEMES).slice(0, 7);
+        var plans = document.querySelectorAll("#block-week .day-plan");
+        week.forEach(function (text, i) {
+          if (plans[i]) {
+            plans[i].textContent = text;
+            plans[i].classList.remove("placeholder");
+          }
+        });
+        flashCards();
+        pulse(document.getElementById("btnGenerate"));
+      }
+
+      document.getElementById("btnGenerate").addEventListener("click", generate);
+
+      document.getElementById("btnCopyAll").addEventListener("click", function () {
+        copyText(getAllText(), this);
+      });
+
+      document.querySelectorAll(".copy-block").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var id = b.getAttribute("data-copy-target");
+          var card = id ? document.getElementById(id) : null;
+          if (card) copyText(getSectionBlockText(card), b);
+        });
+      });
     })();
   </script>
 </body>

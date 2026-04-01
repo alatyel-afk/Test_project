@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор идей контента</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a222d;
+      --border: #2d3a4a;
+      --text: #e8eef4;
+      --muted: #8fa3b8;
+      --accent: #5eb8ff;
+      --accent-soft: rgba(94, 184, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.75rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.65rem, 4vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, #a8c8e8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      margin: 0.65rem 0 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::before {
+      content: "";
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem 1.25rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .week-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .day-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .day-plan {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Генератор идей контента</h1>
+      <p class="subtitle">Структура для еженедельного планирования и сторис</p>
+    </header>
+
+    <section aria-labelledby="consult">
+      <h2 id="consult">5 идей для консультации</h2>
+      <div class="card">
+        <ul>
+          <li><span class="placeholder">Идея 1 — тема или формат консультации</span></li>
+          <li><span class="placeholder">Идея 2</span></li>
+          <li><span class="placeholder">Идея 3</span></li>
+          <li><span class="placeholder">Идея 4</span></li>
+          <li><span class="placeholder">Идея 5</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="practices">
+      <h2 id="practices">5 практик</h2>
+      <div class="card">
+        <ul>
+          <li><span class="placeholder">Практика 1 — упражнение или ритуал для аудитории</span></li>
+          <li><span class="placeholder">Практика 2</span></li>
+          <li><span class="placeholder">Практика 3</span></li>
+          <li><span class="placeholder">Практика 4</span></li>
+          <li><span class="placeholder">Практика 5</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="stories">
+      <h2 id="stories">Три сторис на сегодня</h2>
+      <div class="card">
+        <ul>
+          <li><span class="placeholder">Сторис 1 — крючок / вопрос / мини-история</span></li>
+          <li><span class="placeholder">Сторис 2</span></li>
+          <li><span class="placeholder">Сторис 3</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="week">
+      <h2 id="week">Контент-план на неделю</h2>
+      <div class="card">
+        <div class="week-grid">
+          <div class="day">
+            <span class="day-name">Понедельник</span>
+            <p class="day-plan placeholder">Пост / формат / тема</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Вторник</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Среда</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Четверг</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Пятница</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Суббота</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+          <div class="day">
+            <span class="day-name">Воскресенье</span>
+            <p class="day-plan placeholder">—</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
